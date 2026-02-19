@@ -32,7 +32,8 @@ jobs:
       # Step D: Run your Python script and pass the hidden passwords!
       - name: Execute Python Script
         env:
-          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
-          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          # Left side = What Python expects. Right side = Your GitHub Secrets.
+          EMAIL_USER: ${{ secrets.SENDER_EMAIL }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASSWORD }}
           RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
         run: python main.py
