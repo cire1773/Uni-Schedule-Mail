@@ -3,8 +3,8 @@ name: Daily Schedule Notifier
 # 1. WHEN TO RUN
 on:
   schedule:
-    # Runs at 05:00 UTC every day (07:00 AM EET)
-    - cron: '0 5 * * *'
+    # Runs at 03:00 UTC every day (05:00 AM EET or 06:00 AM EEST)
+    - cron: '0 3 * * *'
   
   # This allows you to click a "Run Workflow" button manually to test it!
   workflow_dispatch:
