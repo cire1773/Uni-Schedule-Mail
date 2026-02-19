@@ -1,0 +1,14 @@
+[
+  {
+    "date": "YYYY-MM-DD",
+    "note": "",
+    "cancel_hours": [],
+    "cancel_courses": []
+  },
+  {
+    "date": "",
+    "note": "",
+    "cancel_hours": [],
+    "cancel_courses": []
+  }
+]
