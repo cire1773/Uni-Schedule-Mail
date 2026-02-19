@@ -7,7 +7,7 @@ from email.message import EmailMessage
 
 EXCEL_FILE = 'schedule.xlsx'
 EXCEPTIONS_FILE = 'exceptions.json'
-SEND_EMPTY_EMAIL = False # Set to True if you want an email saying "No classes"
+SEND_EMPTY_EMAIL = True # Set to True if you want an email saying "No classes"
 
 SEMESTER_START_DATE = date(2026, 2, 23) 
 
