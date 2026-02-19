@@ -1,0 +1,38 @@
+name: Daily Schedule Notifier
+
+# 1. WHEN TO RUN
+on:
+  schedule:
+    # Runs at 05:00 UTC every day (07:00 AM EET)
+    - cron: '0 5 * * *'
+  
+  # This allows you to click a "Run Workflow" button manually to test it!
+  workflow_dispatch:
+
+# 2. WHAT TO DO
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest # The free computer GitHub provides
+
+    steps:
+      # Step A: Download your repository files (main.py, schedule.xlsx, etc.)
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step B: Install Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # Step C: Install the libraries from your requirements.txt
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      # Step D: Run your Python script and pass the hidden passwords!
+      - name: Execute Python Script
+        env:
+          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
+        run: python main.py
